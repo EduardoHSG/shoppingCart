@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ProductCard from "../ProductCard/ProductCard";
 
 import "./Products.css";
 import fetchProducts from "../../api/fetchProducts";
@@ -11,5 +12,12 @@ export default function Products() {
       setProducts(resp);
     });
   }, []);
-  return <section className="products container"></section>;
+
+  return (
+    <section className="products container">
+      {products.map((product) => (
+        <ProductCard key={product.id} data={product} />
+      ))}
+    </section>
+  );
 }

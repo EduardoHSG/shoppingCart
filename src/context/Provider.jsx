@@ -6,6 +6,7 @@ export default function Provider({ children }) {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
   const value = {
     products,
@@ -14,6 +15,8 @@ export default function Provider({ children }) {
     setLoading,
     cartItems,
     setCartItems,
+    isCartVisible,
+    setIsCartVisible,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
